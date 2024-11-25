@@ -1,8 +1,35 @@
-# React + Vite
+# Проект "Тестирование Канбан-доски":
+### Hexlet tests and linter status:
+[![Actions Status](https://github.com/diannaSharmazanyan-qa/qa-auto-engineer-javascript-project-90/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/diannaSharmazanyan-qa/qa-auto-engineer-javascript-project-90/actions)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание проекта
+__"Канбан-доска"__ : в этом проекте реализовано тестирование приложения управления задачами, разработанного с использованием react-admin, с помощью инструмента автоматизации тестирования playwright. Тестирование направлено на обеспечение корректной работы основных функций приложения, таких как создание, редактирование, удаление и перемещение задач, а также авторизация пользователей.
 
-Currently, two official plugins are available:
+Task Manager – система управления задачами, подобная http://www.redmine.org/. Она позволяет ставить задачи, назначать исполнителей и менять их статусы. Для работы с системой требуется регистрация и аутентификация.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+В приложении реализованы следующие основные функции:
+
+- Управление задачами: пользователи могут создавать новые задачи, назначать исполнителей, изменять статусы задач (например, "in progress", "draft", "done"), редактировать и удалять задачи.
+- Управление пользователями: администраторы могут создавать новых пользователей и просматривать список существующих пользователей.
+- Управление метками: пользователи могут создавать и редактировать метки для задач, такие как "bug", "feature" и т. д.
+- Управление статусами задач: администраторы могут создавать и редактировать статусы задач, которые определяют колонки на канбан-доске, такие как "draft", "in progress" и т. д.
+
+Для тестирования приложения используется библиотека playwright, которая позволяет автоматизировать взаимодействие с интерфейсом приложения, эмулируя действия пользователя и проверяя корректность работы различных функций.
+
+### Установка
+
+Note: Текущая версия канбан-доски была протестирована с использованием Node.js версии 20.11.1.
+
+```
+npm ci
+```
+
+### Запуск тестов
+- Запуск приложения Канбан-доски:
+```
+npm run dev
+```
+- Запуск тестов:
+```
+npm test
+```
