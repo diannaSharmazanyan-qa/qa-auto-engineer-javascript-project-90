@@ -1,3 +1,5 @@
+import {faker} from "@faker-js/faker";
+
 export type IRegistrationData = {
     email: string,
     firstName: string,
@@ -6,8 +8,8 @@ export type IRegistrationData = {
 }
 
 export const registrationData: IRegistrationData = {
-    email: 'test@mail.ru',
-    firstName: 'test',
-    lastName: 'user',
-    password: 'password',
+    email: faker.internet.email(),
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    password: faker.internet.password()
 }

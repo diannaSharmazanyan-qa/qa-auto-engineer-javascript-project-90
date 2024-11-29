@@ -1,15 +1,19 @@
-import {expect, Page} from "@playwright/test";
-import {BasePage} from "./BasePage";
+import {expect, Locator, Page} from "@playwright/test";
 
-export class LoginPage extends BasePage{
-    public usernameInput = this.page.locator('#username')
-    public passwordInput = this.page.locator('#password')
-    public signInButton = this.page.locator('[type="submit"]')
-    public authBlock = this.page.locator('.RaLogin-card')
+export class LoginPage{
+    page: Page
+    public usernameInput: Locator
+    public passwordInput: Locator
+    public signInButton: Locator
+    public authBlock: Locator
     public url = '/login'
 
     constructor(page: Page) {
-        super(page)
+        this.page = page
+        this.usernameInput = this.page.locator('#username')
+        this.passwordInput = this.page.locator('#password')
+        this.signInButton = this.page.locator('[type="submit"]')
+        this.authBlock = this.page.locator('.RaLogin-card')
     }
 
     async open() {

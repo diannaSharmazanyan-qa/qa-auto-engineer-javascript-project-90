@@ -1,9 +1,9 @@
 import {expect, Page} from "@playwright/test";
-import {BasePage} from "./BasePage";
 import {IStatusData} from "../data/statusData";
+import {BaseListPage} from "./BaseListPage";
 
 
-export class TasksStatusesPage extends BasePage {
+export class TasksStatusesPage extends BaseListPage {
     public taskStatusesBlock = this.page.locator('table')
     public nameCell = this.page.locator('tbody .column-name')
     public slugCell = this.page.locator('tbody .column-slug')

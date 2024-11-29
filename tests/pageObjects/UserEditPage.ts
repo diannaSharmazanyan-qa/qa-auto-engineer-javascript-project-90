@@ -1,9 +1,9 @@
 import {expect, Page} from "@playwright/test";
 import {IRegistrationData} from "../data/registrationData";
-import {BasePage} from "./BasePage";
+import {BaseFormPage} from "./BaseFormPage";
 
 
-export class UserEditPage extends BasePage{
+export class UserEditPage extends BaseFormPage{
     public emailInput = this.page.locator('#email')
     public firstNameInput = this.page.locator('#firstName')
     public lastNameInput = this.page.locator('#lastName')

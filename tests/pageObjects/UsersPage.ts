@@ -1,9 +1,8 @@
 import {expect, Page} from "@playwright/test";
 import {IRegistrationData} from "../data/registrationData";
-import {BasePage} from "./BasePage";
-import {IStatusData} from "../data/statusData";
+import {BaseListPage} from "./BaseListPage";
 
-export class UsersPage extends BasePage {
+export class UsersPage extends BaseListPage {
     public userBlock = this.page.locator('table')
     public userEmailCell = this.page.locator('tbody .column-email')
     public userFirstNameCell = this.page.locator('tbody .column-firstName')

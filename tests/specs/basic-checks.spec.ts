@@ -1,22 +1,12 @@
 import {test} from "../base.fixture";
 
 test.describe('Базовые проверки', () => {
-  test.beforeEach(async ({loginPage}) => {
-    await loginPage.open()
+  test('Проверка заголовка после успешной авторизации', async ({app: {loginPage, mainPage}}) => {
+    await mainPage.checkHeaderIsVisible()
   })
 
-  test('Рендер формы авторизации', async ({loginPage}) => {
-    await loginPage.checkIsVisibleAuthForm()
-  })
-
-  test('Авторизация', async ({loginPage}) => {
-    await loginPage.auth()
-    await loginPage.checkHeaderIsVisible()
-  })
-
-  test('Выход из лк', async ({loginPage}) => {
-    await loginPage.auth()
-    await loginPage.logout()
+  test('Проверка видимости формы авторизации после выхода из лк', async ({app: {loginPage, mainPage}}) => {
+    await mainPage.logout()
     await loginPage.checkIsVisibleAuthForm()
   })
 })

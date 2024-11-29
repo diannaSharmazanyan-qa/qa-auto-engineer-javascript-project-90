@@ -1,7 +1,7 @@
 import {Page} from "@playwright/test";
-import {BasePage} from "./BasePage";
+import {BaseFormPage} from "./BaseFormPage";
 
-export class CreateLabelPage extends BasePage{
+export class CreateLabelPage extends BaseFormPage{
     public nameInput = this.page.locator('#name')
 
 

@@ -1,45 +1,45 @@
 import {test} from "../base.fixture";
+import {faker} from "@faker-js/faker";
 
-const labelName = 'testLabel'
+
+const labelName = faker.company.name()
 
 test.describe('Лейблы', () => {
-    test.beforeEach(async ({loginPage}) => {
-        await loginPage.open()
-        await loginPage.auth()
-        await loginPage.clickTab('Labels')
+    test.beforeEach(async ({app: {loginPage, mainPage}}) => {
+        await mainPage.clickTab('Labels')
     })
 
     test.describe('Создание лейблов', async () => {
-        test('Отображение создания формы лейбла', async({labelsPage, createLabelPage}) => {
+        test('Отображение создания формы лейбла', async({app: {labelsPage, createLabelPage}}) => {
             await labelsPage.clickCreateButton()
             await createLabelPage.checkRenderCreatePage()
         })
 
-        test('Проверка, что лейбл корректно создался', async({labelsPage, createLabelPage}) => {
+        test('Проверка, что лейбл корректно создался', async({app: {labelsPage, createLabelPage, mainPage}}) => {
             await labelsPage.clickCreateButton()
             await createLabelPage.createLabel(labelName)
-            await createLabelPage.clickTab('Labels')
+            await mainPage.clickTab('Labels')
             await labelsPage.checkLabelDataAfterCreate(labelName)
         })
     })
 
     test.describe('Список лейблов', async () => {
-        test('Видимость списка статусов', async ({ labelsPage}) => {
+        test('Видимость списка статусов', async ({ app: {labelsPage}}) => {
             await labelsPage.checkLabelsBlockIsVisible()
         })
 
-        test('Корректность отображения name и slug в блоке статусов', async ({labelsPage}) => {
+        test('Корректность отображения name и slug в блоке статусов', async ({app: {labelsPage}}) => {
             await labelsPage.checkDataLabelsBlock()
         })
     })
 
     test.describe('Редактирование лейблов', async () => {
-        test('Видимость редактирования формы статуса', async ({ taskStatusEditPage, tasksStatusesPage}) => {
+        test('Видимость редактирования формы статуса', async ({app: {taskStatusEditPage, tasksStatusesPage}}) => {
             await tasksStatusesPage.clickRow()
             await taskStatusEditPage.checkRenderEditPage()
         })
 
-        test('После редактирования данные корректно сохраняются', async ({labelsPage, labelEditPage}) => {
+        test('После редактирования данные корректно сохраняются', async ({app: {labelsPage, labelEditPage}}) => {
             await labelsPage.clickRow()
             await labelEditPage.editLabelField(labelName)
             await labelsPage.checkValueInCellAfterUpdateLabel(labelName)
@@ -48,18 +48,18 @@ test.describe('Лейблы', () => {
 
 
     test.describe('Удаление лейблов', async () => {
-        test('Удаление одного лейбла', async ({labelsPage}) => {
+        test('Удаление одного лейбла', async ({app: {labelsPage}}) => {
             await labelsPage.selectOneRowViaCheckbox()
             await labelsPage.clickDeleteButton()
             await labelsPage.checkAfterDeleteCellIsNotVisible('bug')
         })
 
-        test('Проверка, что выбраны все статусы для удаления', async ({labelsPage}) => {
+        test('Проверка, что выбраны все статусы для удаления', async ({app: {labelsPage}}) => {
             await labelsPage.selectAllRowsViaCheckbox()
             await labelsPage.checkCountSelectedItems()
         })
 
-        test('Проверка, что все статусы удалены', async ({labelsPage}) => {
+        test('Проверка, что все статусы удалены', async ({app: {labelsPage}}) => {
             await labelsPage.selectAllRowsViaCheckbox()
             await labelsPage.clickDeleteButton()
             await labelsPage.checkNoItemYetBlockIsVisible('No Label')

@@ -1,7 +1,7 @@
 import {expect, Page} from "@playwright/test";
-import {BasePage} from "./BasePage";
+import {BaseListPage} from "./BaseListPage";
 
-export class LabelsPage extends BasePage{
+export class LabelsPage extends BaseListPage{
     public nameCell = this.page.locator('tbody .column-name');
     public labelsBlock = this.page.locator('table')
 

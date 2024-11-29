@@ -1,8 +1,8 @@
-import {BasePage} from "./BasePage";
 import {Page} from "@playwright/test";
-import {ITaskData, taskData} from "../data/taskData";
+import {ITaskData} from "../data/taskData";
+import {BaseFormPage} from "./BaseFormPage";
 
-export class CreateTaskPage extends BasePage {
+export class CreateTaskPage extends BaseFormPage {
     public assigneeDropdown = this.page.getByLabel('Assignee')
     public assigneeDropdownBlock = this.page.locator('#assignee_id-option-0')
     public titleInput = this.page.locator('#title')

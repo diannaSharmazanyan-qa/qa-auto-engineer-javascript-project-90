@@ -1,8 +1,8 @@
 import {Page} from "@playwright/test";
-import {BasePage} from "./BasePage";
 import {IStatusData} from "../data/statusData";
+import {BaseFormPage} from "./BaseFormPage";
 
-export class CreateTaskStatusPage extends BasePage{
+export class CreateTaskStatusPage extends BaseFormPage{
     public nameInput = this.page.locator('#name')
     public slugInput = this.page.locator('#slug')
 
