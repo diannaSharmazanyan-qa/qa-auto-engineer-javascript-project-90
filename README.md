@@ -31,5 +31,5 @@ npm run dev
 ```
 - Запуск тестов:
 ```
-npm test
+npm e2e
 ```
