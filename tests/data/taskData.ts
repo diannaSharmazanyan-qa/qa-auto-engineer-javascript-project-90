@@ -7,6 +7,6 @@ export type ITaskData = {
 }
 
 export const taskData: ITaskData = {
-    title: faker.lorem.sentence().slice(0, 5),
-    content: faker.lorem.sentence().slice(0, 5),
+    title: faker.lorem.sentence().slice(0, 4).trim(),
+    content: faker.lorem.sentence().slice(0, 5).trim(),
 }

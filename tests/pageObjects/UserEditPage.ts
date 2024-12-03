@@ -1,6 +1,6 @@
 import {expect, Page} from "@playwright/test";
 import {IRegistrationData} from "../data/registrationData";
-import {BaseFormPage} from "./BaseFormPage";
+import {BaseFormPage} from "./base/BaseFormPage";
 
 
 export class UserEditPage extends BaseFormPage{

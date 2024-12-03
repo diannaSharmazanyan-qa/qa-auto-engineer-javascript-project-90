@@ -1,5 +1,5 @@
 import {Page} from "@playwright/test";
-import {BaseFormPage} from "./BaseFormPage";
+import {BaseFormPage} from "./base/BaseFormPage";
 import {ITaskData} from "../data/taskData";
 
 export class TaskEditPage extends BaseFormPage{

@@ -8,8 +8,8 @@ export type IRegistrationData = {
 }
 
 export const registrationData: IRegistrationData = {
-    email: faker.internet.email(),
-    firstName: faker.person.firstName(),
-    lastName: faker.person.lastName(),
-    password: faker.internet.password()
+    email: faker.internet.email().trim(),
+    firstName: faker.person.firstName().trim(),
+    lastName: faker.person.lastName().trim(),
+    password: faker.internet.password().trim()
 }

@@ -1,4 +1,4 @@
-import {PageHolder} from "./PageHolder";
+import {PageHolder} from "./base/PageHolder";
 import {Page} from "@playwright/test";
 import {LoginPage} from "./LoginPage";
 import {UsersPage} from "./UsersPage";

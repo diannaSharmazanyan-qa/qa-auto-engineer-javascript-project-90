@@ -1,6 +1,6 @@
 import {expect, Page} from "@playwright/test";
 import {IRegistrationData} from "../data/registrationData";
-import {BaseListPage} from "./BaseListPage";
+import {BaseListPage} from "./base/BaseListPage";
 
 export class UsersPage extends BaseListPage {
     public userBlock = this.page.locator('table')

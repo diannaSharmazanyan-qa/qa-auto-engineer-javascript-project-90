@@ -1,5 +1,5 @@
 import {Page} from "@playwright/test";
-import {BaseFormPage} from "./BaseFormPage";
+import {BaseFormPage} from "./base/BaseFormPage";
 
 export class LabelEditPage extends BaseFormPage {
     public nameInput = this.page.locator('#name')

@@ -6,6 +6,6 @@ export type IStatusData = {
 }
 
 export const statusData: IStatusData = {
-    name: faker.person.firstName(),
-    slug: faker.person.zodiacSign(),
+    name: faker.person.firstName().trim(),
+    slug: faker.person.zodiacSign().trim(),
 }

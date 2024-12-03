@@ -1,6 +1,6 @@
 import {Page} from "@playwright/test";
 import {IStatusData} from "../data/statusData";
-import {BaseFormPage} from "./BaseFormPage";
+import {BaseFormPage} from "./base/BaseFormPage";
 
 export class TaskStatusEditPage extends BaseFormPage {
     public nameInput = this.page.locator('#name')

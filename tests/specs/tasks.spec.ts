@@ -3,6 +3,18 @@ import {taskData} from "../data/taskData";
 
 const statuses = ['To Be Fixed', 'To Review', 'To Publish', 'Published', 'Draft']
 
+const testArgs = [
+    {
+        statusName: 'To Review',
+    },
+    {
+        statusName: 'To Be Fixed',
+
+    },
+    {
+        statusName: 'Draft',
+    },
+]
 
 test.describe('Задачи', () => {
     test.beforeEach(async ({app: {loginPage, mainPage}}) => {
@@ -47,28 +59,14 @@ test.describe('Задачи', () => {
     })
 
     test.describe('Фильтрация задач по статусам', async () => {
-        test('При выборе статуса "To Review" остальные статусы не отображаются', async ({app: {tasksPage}}) => {
-            const statusesWithoutToReview = statuses.filter((status) => status !== 'To Review')
+        testArgs.forEach((testArg) => {
+            test(`При выборе статуса ${testArg.statusName} остальные статусы не отображаются`, async ({ app: {tasksPage} }) => {
+                const filteredStatuses = statuses.filter((status) => status !== testArg.statusName)
+                await tasksPage.clickStatusDropdown()
+                await tasksPage.selectItemFromDropdown(testArg.statusName)
+                await tasksPage.checkStatusesIsNotVisibleAfterFilter(filteredStatuses)
 
-            await tasksPage.clickStatusDropdown()
-            await tasksPage.selectItemFromDropdown('To Review')
-            await tasksPage.checkStatusesIsNotVisibleAfterFilter(statusesWithoutToReview)
-        })
-
-        test('При выборе статуса "To Be Fixed" остальные статусы не отображаются', async ({app: {tasksPage}}) => {
-            const statusesWithoutToBeFixed = statuses.filter((status) => status !== 'To Be Fixed')
-
-            await tasksPage.clickStatusDropdown()
-            await tasksPage.selectItemFromDropdown('To Be Fixed')
-            await tasksPage.checkStatusesIsNotVisibleAfterFilter(statusesWithoutToBeFixed)
-        })
-
-        test('При выборе статуса "Draft" остальные статусы не отображаются', async ({app: {tasksPage}}) => {
-            const statusesWithoutDraft = statuses.filter((status) => status !== 'Draft')
-
-            await tasksPage.clickStatusDropdown()
-            await tasksPage.selectItemFromDropdown('Draft')
-            await tasksPage.checkStatusesIsNotVisibleAfterFilter(statusesWithoutDraft)
+            })
         })
     })
 

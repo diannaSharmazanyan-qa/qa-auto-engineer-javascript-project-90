@@ -1,6 +1,6 @@
 import {expect, Page} from "@playwright/test";
 import {IStatusData} from "../data/statusData";
-import {BaseListPage} from "./BaseListPage";
+import {BaseListPage} from "./base/BaseListPage";
 
 
 export class TasksStatusesPage extends BaseListPage {

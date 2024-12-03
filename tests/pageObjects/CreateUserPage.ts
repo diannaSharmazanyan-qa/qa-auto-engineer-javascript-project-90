@@ -1,6 +1,6 @@
 import {Page} from "@playwright/test";
 import {IRegistrationData} from "../data/registrationData";
-import {BaseFormPage} from "./BaseFormPage";
+import {BaseFormPage} from "./base/BaseFormPage";
 
 export class CreateUserPage extends BaseFormPage{
     public emailInput = this.page.locator('#email')
